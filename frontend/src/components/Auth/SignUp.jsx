@@ -21,7 +21,7 @@ function SignUp() {
       const handleSubmit = async (e) => {
         e.preventDefault();
         axios
-          .post("http://localhost:4000/auth/register", data)
+          .post("https://healthcare-mvsv.onrender.com/auth/register", data)
           .then((res) => {
             if (res.data.message === "Success") {
               navigate("/sign-in");
