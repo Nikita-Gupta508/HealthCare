@@ -20,8 +20,10 @@ function AdminNurse() {
         const response = await axios.get(
           "https://healthcare-mvsv.onrender.com/admin/get-department"
         );
+        console.log("respone" , response);
         setDepartments(response.data);
       } catch (error) {
+        console.log("error",error);
         Swal.fire({
           title: "Error",
           icon: "error",
