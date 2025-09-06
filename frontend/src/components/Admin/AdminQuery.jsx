@@ -12,7 +12,7 @@ function AdminQuery() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://hmsmern.onrender.com/admin/get-contacts"
+          "https://healthcare-mvsv.onrender.com/admin/get-contacts"
         );
         setContacts(response.data);
       } catch (error) {
