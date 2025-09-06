@@ -38,7 +38,7 @@ function DoctorProfile() {
     e.preventDefault();
     try {
       axios
-        .put("https://hmsmern.onrender.com/doctor/profile-update", {
+        .put("https://healthcare-mvsv.onrender.com/doctor/profile-update", {
           userId: userData._id,
           updatedProfile: {
             email: email,
