@@ -59,6 +59,7 @@ function AdminDoctor() {
           text: "Error Adding Doctor!",
         });
       })
+    fetchData();
   };
 
   const [isCreate, setIsCreate] = useState(false);
