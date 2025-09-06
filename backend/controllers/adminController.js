@@ -50,13 +50,21 @@ router.post("/add-department", async (req, res) => {
         .status(400)
         .json({ error: "Department with same name already exists" });
     }
-    const newDept = new Department({
+       
+    // Prepare department data
+    const deptData = {
       name,
-      description,
-      head,
-      staff,
-    });
+      description: description || "",
+      staff: staff || [],
+      head: head || null
+    };
 
+    // Only add head if it's provided and not empty
+    if (head && head.trim() !== "") {
+      deptData.head = head;
+    }
+
+    const newDept = new Department(deptData);
     const savedDept = await newDept.save();
     res.status(200).json(savedDept);
   } catch (error) {
