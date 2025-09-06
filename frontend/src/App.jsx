@@ -30,7 +30,7 @@ import PrivateRoute from "./components/Routes/PrivateRoute.jsx";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AdminNewsletter from "./components/Admin/AdminNewsletter";
-
+import AdminDepartment from "./components/Admin/AdminDepartment";
 function App() {
   return (
     <Provider store={store}>
@@ -73,6 +73,8 @@ function App() {
               <Route path="/admin-patient" element={<AdminPatient />} />
               <Route path="/admin-query" element={<AdminQuery />} />
               <Route path="/admin-newsletter" element={<AdminNewsletter />} />
+              <Route path="/admin-department" element={<AdminDepartment />} />
+
             </Route>
           </Routes>
         </Router>
