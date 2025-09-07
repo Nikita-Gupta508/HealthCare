@@ -12,10 +12,10 @@ function AdminNewsletter() {
 
   const fetchSentMessages = async () => {
     try {
-<<<<<<< HEAD
+
       const response = await adminService.getNewsletters();
       setSubscribers(response.data);
-=======
+
       await axios.get(
         "https://healthcare-mvsv.onrender.com/admin/get-sent-newsletter"
       )

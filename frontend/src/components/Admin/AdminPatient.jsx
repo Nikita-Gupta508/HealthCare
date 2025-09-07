@@ -13,9 +13,9 @@ function AdminPatient() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-<<<<<<< HEAD
+
         const response = await adminService.getUsers();
-=======
+
         const response = await axios.get(
           "https://healthcare-mvsv.onrender.com/admin/get-users"
         );

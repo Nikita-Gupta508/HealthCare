@@ -1,7 +1,7 @@
 @echo off
-echo ========================================
+echo =====
 echo Hospital Management System - Admin Setup
-echo ========================================
+echo =====
 echo.
 
 echo Step 1: Installing backend dependencies...
@@ -31,9 +31,9 @@ pause
 call node seedAdmin.js
 
 echo.
-echo ========================================
+echo =====
 echo Setup Complete!
-echo ========================================
+echo =====
 echo.
 echo Admin Login Credentials:
 echo Email: admin@hospital.com

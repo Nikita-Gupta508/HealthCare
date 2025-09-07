@@ -13,9 +13,9 @@ function AdminQuery() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-<<<<<<< HEAD
+
         const response = await adminService.getContacts();
-=======
+
         const response = await axios.get(
           "https://healthcare-mvsv.onrender.com/admin/get-contacts"
         );
