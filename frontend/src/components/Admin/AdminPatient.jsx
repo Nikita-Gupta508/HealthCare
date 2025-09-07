@@ -4,6 +4,8 @@ import profiePic from "../../assets/human6.jpg";
 import axios from "axios";
 import Swal from "sweetalert2";
 import AdminSidebar from "./AdminSidebar";
+import Loader from "../Shared/Loader";
+import { adminService } from "../../services/adminService";
 
 function AdminPatient() {
   const [users, setUsers] = useState([]);
@@ -11,9 +13,7 @@ function AdminPatient() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://hmsmern.onrender.com/admin/get-users"
-        );
+        const response = await adminService.getUsers();
         setUsers(response.data);
       } catch (error) {
         Swal.fire({

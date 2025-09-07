@@ -17,7 +17,7 @@ const AdminSidebar = ({ profilePic, userName }) => {
   const dispatch = useDispatch();
   const handleSignOut = async (e) => {
     e.preventDefault();
-    await axios.get("https://hmsmern.onrender.com/auth/logout").then((res) => {
+    await axios.get("https://healthcare-mvsv.onrender.com/auth/logout").then((res) => {
       if (res.data.message === "User Logged Out") {
         localStorage.removeItem("user");
         dispatch(logout());
@@ -80,6 +80,13 @@ const AdminSidebar = ({ profilePic, userName }) => {
             to="/admin-newsletter"
           >
             Newsletter
+          </NavLink>
+          <NavLink
+            style={navLinkStyle}
+            className={"w-full p-2 h-[40px] "}
+            to="/admin-department"
+          >
+            Department
           </NavLink>
         </div>
         <div className="w-full text-center  h-[80px] p-2">

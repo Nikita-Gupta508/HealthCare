@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:4000';
+const API_BASE_URL = 'https://healthcare-mvsv.onrender.com';
 
 // Create axios instance with default config
 const adminApi = axios.create({
@@ -67,6 +67,9 @@ export const adminService = {
   
   // Get newsletters
   getNewsletters: () => adminApi.get('/admin/get-sent-newsletter'),
+  
+  // Delete contact
+  deleteContact: (contactId) => adminApi.delete(`/admin/delete-contact/${contactId}`),
 };
 
 export default adminService;

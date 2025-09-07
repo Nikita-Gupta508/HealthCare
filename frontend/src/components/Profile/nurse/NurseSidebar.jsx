@@ -16,7 +16,7 @@ const NurseSidebar = ({ profilePic, userName }) => {
 
   const handleSignOut = async (e) => {
     e.preventDefault();
-    await axios.get("https://hmsmern.onrender.com/auth/logout").then((res) => {
+    await axios.get("https://healthcare-mvsv.onrender.com/auth/logout").then((res) => {
       if (res.data.message === "User Logged Out") {
         localStorage.removeItem("user");
         dispatch(logout());

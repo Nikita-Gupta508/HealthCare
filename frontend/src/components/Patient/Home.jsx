@@ -15,7 +15,9 @@ import Footer from '../Shared/Footer';
 import {motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 import axios from "axios"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { FaRobot, FaFileMedical, FaChartLine } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 import Swal from "sweetalert2";
 
@@ -28,10 +30,25 @@ function Home() {
         threshold: 0.3, 
       });
 
+    const { ref: aiRef, inView: aiInView } = useInView({
+        triggerOnce: true,
+        threshold: 0.2,
+    });
+
     const [email , setEmail] = useState("");
+    const [savedAnalysis, setSavedAnalysis] = useState(null);
+    
+    // Load saved analysis from localStorage
+    useEffect(() => {
+        const saved = localStorage.getItem('aiReportAnalysis');
+        if (saved) {
+            setSavedAnalysis(JSON.parse(saved));
+        }
+    }, []);
+
     const handleNewsletter = async(e) =>{
         e.preventDefault(); 
-        await axios.post("https://hmsmern.onrender.com/admin/new-letter", {email})
+        await axios.post("https://healthcare-mvsv.onrender.com/admin/new-letter", {email})
         .then(() =>{
             Swal.fire({
                 title: "Success",
@@ -167,9 +184,87 @@ function Home() {
                 </div>
             </div>
         </motion.section>
+
+
+{/* AI Report Analysis Section */}
+            <motion.section
+            ref={aiRef}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: aiInView ? 1 : 0 }}
+            transition={{ duration: 1.5 }}
+            whileInView={{ opacity: 1 }}
+            >
+            <div className="h-full max-w-7xl flex flex-col m-auto justify-center items-center overflow-auto py-16">
+                {/* Heading */}
+                <p className="font-semibold text-3xl md:text-4xl text-center mb-12">
+                AI-Powered Medical Report Analysis
+                </p>
+                
+
+                {/* Card Row */}
+                <div className="flex flex-wrap justify-center gap-6">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+                    transition={{ duration: 1, delay: 0.2 }}
+                    className="w-[270px] h-[300px] bg-white border border-gray-200 rounded-lg shadow flex flex-col items-center justify-center text-center p-4"
+                >
+                    <FaRobot className="text-4xl text-blue-600 mb-3" />
+                    <h3 className="mb-1 text-xl font-medium text-black">AI Analysis</h3>
+                    <p className="text-sm text-gray-600">
+                    Advanced AI analyzes your medical reports with precision and provides detailed insights.
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+                    transition={{ duration: 1, delay: 0.4 }}
+                    className="w-[270px] h-[300px] bg-white border border-gray-200 rounded-lg shadow flex flex-col items-center justify-center text-center p-4"
+                >
+                    <FaFileMedical className="text-4xl text-green-600 mb-3" />
+                    <h3 className="mb-1 text-xl font-medium text-black">Report Detection</h3>
+                    <p className="text-sm text-gray-600">
+                    Smart detection ensures only valid medical reports are analyzed for accurate results.
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+                    transition={{ duration: 1, delay: 0.6 }}
+                    className="w-[270px] h-[300px] bg-white border border-gray-200 rounded-lg shadow flex flex-col items-center justify-center text-center p-4"
+                >
+                    <FaChartLine className="text-4xl text-purple-600 mb-3" />
+                    <h3 className="mb-1 text-xl font-medium text-black">Detailed Insights</h3>
+                    <p className="text-sm text-gray-600">
+                    Get comprehensive analysis including normal ranges, abnormal findings, and recommendations.
+                    </p>
+                </motion.div>
+                </div>
+                
+
+                {/* CTA Button */}
+                <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+                transition={{ duration: 1, delay: 1 }}
+                className="text-center mt-12"
+                >
+                <Link
+                    to="/ai-report-analysis"
+                    className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
+                    <FaRobot className="mr-3 text-xl" />
+                    Try AI Report Analysis Now
+                </Link>
+                </motion.div>
+            </div>
+            </motion.section>
+
+
+
         <motion.section
-        
-        
         ref={ref}
         initial={{ opacity: 0 }} 
         animate={{ opacity: inView ? 1 : 0 }} 
@@ -272,6 +367,7 @@ function Home() {
                 </div>
             </div>
         </motion.section>
+
         <section  
         
         

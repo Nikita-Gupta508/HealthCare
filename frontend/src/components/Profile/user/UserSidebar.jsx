@@ -3,6 +3,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import { logout } from "../../../redux/UserSlice.js";
+import prof from "../../.././assets/pateintimg.png"
 const UserSidebar =({ profiePic  ,userName}) =>{
 
     const navLinkStyle = ({ isActive }) => {
@@ -17,7 +18,7 @@ const UserSidebar =({ profiePic  ,userName}) =>{
     
       const handleSignOut = async (e) => {
         e.preventDefault();
-        await axios.get("https://hmsmern.onrender.com/auth/logout").then((res) => {
+        await axios.get("https://healthcare-mvsv.onrender.com/auth/logout").then((res) => {
           if (res.data.message === "User Logged Out") {
             localStorage.removeItem("user");
             dispatch(logout());
@@ -31,7 +32,7 @@ const UserSidebar =({ profiePic  ,userName}) =>{
     <div className="flex flex-col gap-16">
       <div className="w-full flex flex-col items-center ">
         <img
-          src={profiePic}
+          src={prof}
           className="size-24 rounded-full"
           alt="profile"
         />

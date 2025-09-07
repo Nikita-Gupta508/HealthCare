@@ -4,6 +4,8 @@ import profiePic from "../../assets/human6.jpg";
 import axios from "axios";
 import Swal from "sweetalert2";
 import AdminSidebar from "./AdminSidebar";
+import Loader from "../Shared/Loader";
+import { adminService } from "../../services/adminService";
 
 function AdminQuery() {
   const [contacts, setContacts] = useState([]);
@@ -11,9 +13,7 @@ function AdminQuery() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://hmsmern.onrender.com/admin/get-contacts"
-        );
+        const response = await adminService.getContacts();
         setContacts(response.data);
       } catch (error) {
         Swal.fire({
@@ -30,6 +30,24 @@ function AdminQuery() {
   if (!contacts) {
     return <Loader />;
   }
+
+  const deletePatient = async (contactId) => {
+    try {
+      await adminService.deleteContact(contactId);
+      setContacts(contacts.filter(contact => contact._id !== contactId));
+      Swal.fire({
+        title: "Success",
+        icon: "success",
+        text: "Contact deleted successfully!",
+      });
+    } catch (error) {
+      Swal.fire({
+        title: "Error",
+        icon: "error",
+        text: "Error deleting contact!",
+      });
+    }
+  };
 
   return (
     <section className="bg-slate-300 flex justify-center items-center min-h-screen">

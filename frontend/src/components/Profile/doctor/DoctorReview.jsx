@@ -32,7 +32,7 @@ function DoctorReview() {
       useEffect(() => {
         const getNurses = async () => {
           await axios
-            .get("https://hmsmern.onrender.com/nurse/get-allNurses")
+            .get("https://healthcare-mvsv.onrender.com/nurse/get-allNurses")
             .then((response) => {
               
               setNurses(response.data);
@@ -52,7 +52,7 @@ function DoctorReview() {
 
       const handleAddMessage = (e) =>{
         e.preventDefault();
-        axios.post("https://hmsmern.onrender.com/doctor/add-message",{email , message ,from})
+        axios.post("https://healthcare-mvsv.onrender.com/doctor/add-message",{email , message ,from})
         .then(() =>{
           Swal.fire({
             icon: "success",

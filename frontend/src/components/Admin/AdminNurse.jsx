@@ -4,6 +4,7 @@ import profiePic from "../../assets/human6.jpg";
 import axios from "axios";
 import Swal from "sweetalert2";
 import AdminSidebar from "./AdminSidebar";
+import { adminService } from "../../services/adminService";
 
 function AdminNurse() {
   const [nurses, setNurses] = useState([]);
@@ -17,9 +18,8 @@ function AdminNurse() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://hmsmern.onrender.com/admin/get-department"
-        );
+        const response = await adminService.getDepartments();
+        console.log(response)
         setDepartments(response.data);
       } catch (error) {
         Swal.fire({
@@ -35,8 +35,7 @@ function AdminNurse() {
 
   useEffect(() => {
     const getNurses = async () => {
-      const data = await axios
-        .get("https://hmsmern.onrender.com/nurse/get-nurses")
+      const data = await axios.get("https://healthcare-mvsv.onrender.com/nurse/get-nurses")
         .then((response) => {
           setNurses(response.data);
         })
@@ -55,7 +54,7 @@ function AdminNurse() {
   const handleAddNurse = async (e) => {
     e.preventDefault();
      await axios
-      .post("https://hmsmern.onrender.com/nurse/add-nurse", {
+      .post("https://healthcare-mvsv.onrender.com/nurse/add-nurse", {
         name: nurname,
         email: nuremail,
         department: nurdept,

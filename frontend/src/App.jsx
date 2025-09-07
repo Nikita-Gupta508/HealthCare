@@ -30,6 +30,8 @@ import PrivateRoute from "./components/Routes/PrivateRoute.jsx";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AdminNewsletter from "./components/Admin/AdminNewsletter";
+import AdminDepartment from "./components/Admin/AdminDepartment";
+import AIReportAnalysis from "./components/Patient/AIReportAnalysis";
 
 function App() {
   return (
@@ -39,6 +41,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/appointment" element={<Appointment />} />
+            <Route path="/ai-report-analysis" element={<AIReportAnalysis />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/sign-in" element={<SignInPage />} />
@@ -73,6 +76,7 @@ function App() {
               <Route path="/admin-patient" element={<AdminPatient />} />
               <Route path="/admin-query" element={<AdminQuery />} />
               <Route path="/admin-newsletter" element={<AdminNewsletter />} />
+              <Route path="/admin-department" element={<AdminDepartment />} />
             </Route>
           </Routes>
         </Router>

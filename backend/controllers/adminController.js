@@ -40,6 +40,15 @@ router.get("/get-contacts", async (req, res) => {
   }
 });
 
+router.delete("/delete-contact/:id", async (req, res) => {
+  try {
+    const deletedContact = await ContactUs.findByIdAndDelete(req.params.id);
+    res.json(deletedContact);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 router.post("/add-department", async (req, res) => {
   const { name, description, head, staff } = req.body;
   try {
@@ -50,13 +59,21 @@ router.post("/add-department", async (req, res) => {
         .status(400)
         .json({ error: "Department with same name already exists" });
     }
-    const newDept = new Department({
+       
+    // Prepare department data
+    const deptData = {
       name,
-      description,
-      head,
-      staff,
-    });
+      description: description || "",
+      staff: staff || [],
+      head: head || null
+    };  
 
+    // Only add head if it's provided and not empty
+    if (head && head.trim() !== "") {
+      deptData.head = head;
+    }
+
+    const newDept = new Department(deptData);
     const savedDept = await newDept.save();
     res.status(200).json(savedDept);
   } catch (error) {
@@ -77,12 +94,13 @@ router.get("/get-department", async (req, res) => {
   try {
     const depts = await Department.find({}).populate("head", "name");
     depts;
+    console.log("depart",depts);
     res.json(depts);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-});
-
+});   
+    
 
 router.get("/get-count", async (req, res) => {
   try {

@@ -37,7 +37,7 @@ function DoctorAuth() {
     e.preventDefault();
     dispatch(loginProgress());
     axios.
-    post("https://hmsmern.onrender.com/auth/login", data)
+    post("https://healthcare-mvsv.onrender.com/auth/login", data)
     .then((res)=>{
       if(res.data.role === "doctor"){
         const user = res.data.user;

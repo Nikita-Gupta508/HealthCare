@@ -4,6 +4,7 @@ import profiePic from "../../assets/human6.jpg";
 import axios from "axios";
 import Swal from "sweetalert2";
 import AdminSidebar from "./AdminSidebar";
+import { adminService } from "../../services/adminService";
 
 function AdminNewsletter() {
 
@@ -11,13 +12,8 @@ function AdminNewsletter() {
 
   const fetchSentMessages = async () => {
     try {
-      await axios.get(
-        "https://hmsmern.onrender.com/admin/get-sent-newsletter"
-      )
-      .then((res) =>{
-        setSubscribers(res.data);
-      })
-      
+      const response = await adminService.getNewsletters();
+      setSubscribers(response.data);
     } catch (err) {
       Swal.fire({
         title: "Error",
