@@ -61,17 +61,13 @@ router.post("/add-department", async (req, res) => {
     }
        
     // Prepare department data
+    // Prepare department data
     const deptData = {
       name,
       description: description || "",
       staff: staff || [],
       head: head || null
-<<<<<<< HEAD
     };  
-=======
-    };
->>>>>>> 3d1fcc592930a5840510f06ae4b15e44039d57a3
-
     // Only add head if it's provided and not empty
     if (head && head.trim() !== "") {
       deptData.head = head;
