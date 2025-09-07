@@ -73,7 +73,7 @@ function AdminQuery() {
                     <th scope="col" className="px-6 py-3">Phone No</th>
                     <th scope="col" className="px-6 py-3">Action</th>
                   </tr>
-                </thead>
+                </thead> 
                 <tbody>
                   {contacts && contacts.length > 0 ? (
                     contacts.map((item, index) => (
