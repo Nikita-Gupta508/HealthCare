@@ -31,8 +31,11 @@ import PrivateRoute from "./components/Routes/PrivateRoute.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AdminNewsletter from "./components/Admin/AdminNewsletter";
 import AdminDepartment from "./components/Admin/AdminDepartment";
+<<<<<<< HEAD
 import AIReportAnalysis from "./components/Patient/AIReportAnalysis";
 
+=======
+>>>>>>> 3d1fcc592930a5840510f06ae4b15e44039d57a3
 function App() {
   return (
     <Provider store={store}>
@@ -77,6 +80,10 @@ function App() {
               <Route path="/admin-query" element={<AdminQuery />} />
               <Route path="/admin-newsletter" element={<AdminNewsletter />} />
               <Route path="/admin-department" element={<AdminDepartment />} />
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3d1fcc592930a5840510f06ae4b15e44039d57a3
             </Route>
           </Routes>
         </Router>

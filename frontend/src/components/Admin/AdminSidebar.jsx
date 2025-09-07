@@ -46,6 +46,13 @@ const AdminSidebar = ({ profilePic, userName }) => {
           >
             Dashboard
           </NavLink>
+            <NavLink
+            style={navLinkStyle}
+            className={"w-full p-2 h-[40px] "}
+            to="/admin-department"
+          >
+            Department
+          </NavLink>
           <NavLink
             style={navLinkStyle}
             className={"w-full  p-2 h-[40px] "}

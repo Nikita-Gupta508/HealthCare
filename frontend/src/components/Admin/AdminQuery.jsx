@@ -13,7 +13,13 @@ function AdminQuery() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+<<<<<<< HEAD
         const response = await adminService.getContacts();
+=======
+        const response = await axios.get(
+          "https://healthcare-mvsv.onrender.com/admin/get-contacts"
+        );
+>>>>>>> 3d1fcc592930a5840510f06ae4b15e44039d57a3
         setContacts(response.data);
       } catch (error) {
         Swal.fire({

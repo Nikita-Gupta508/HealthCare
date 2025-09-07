@@ -18,10 +18,18 @@ function AdminNurse() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+<<<<<<< HEAD
         const response = await adminService.getDepartments();
         console.log(response)
+=======
+        const response = await axios.get(
+          "https://healthcare-mvsv.onrender.com/admin/get-department"
+        );
+        console.log("respone" , response);
+>>>>>>> 3d1fcc592930a5840510f06ae4b15e44039d57a3
         setDepartments(response.data);
       } catch (error) {
+        console.log("error",error);
         Swal.fire({
           title: "Error",
           icon: "error",
@@ -35,7 +43,12 @@ function AdminNurse() {
 
   useEffect(() => {
     const getNurses = async () => {
+<<<<<<< HEAD
       const data = await axios.get("https://healthcare-mvsv.onrender.com/nurse/get-nurses")
+=======
+      const data = await axios
+        .get("https://healthcare-mvsv.onrender.com/nurse/get-nurses")
+>>>>>>> 3d1fcc592930a5840510f06ae4b15e44039d57a3
         .then((response) => {
           setNurses(response.data);
         })

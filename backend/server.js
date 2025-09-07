@@ -12,6 +12,8 @@ const adminController = require("./controllers/adminController");
 const limiter = require("./middlewares/rateLimiter");
 const router = express.Router();
 const app = express();
+// Trust the first proxy (needed for Render, Heroku, Vercel, etc.)
+app.set("trust proxy", 1);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
