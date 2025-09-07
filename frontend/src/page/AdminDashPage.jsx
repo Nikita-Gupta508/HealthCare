@@ -24,9 +24,9 @@ function AdminDashPage() {
 
   return (
     <>
-      <Navbar />
+  
       <AdminDashboard />
-      <Footer />
+
     </>
   )
 }
