@@ -34,11 +34,6 @@ import AdminDepartment from "./components/Admin/AdminDepartment";
 
 import AIReportAnalysis from "./components/Patient/AIReportAnalysis";
 
-<<<<<<< HEAD
-
->>>>>>> 3d1fcc592930a5840510f06ae4b15e44039d57a3
-=======
->>>>>>> f97071dd1af447a4a51bca091244ae4bde42da00
 function App() {
   return (
     <Provider store={store}>
@@ -83,11 +78,6 @@ function App() {
               <Route path="/admin-query" element={<AdminQuery />} />
               <Route path="/admin-newsletter" element={<AdminNewsletter />} />
               <Route path="/admin-department" element={<AdminDepartment />} />
-<<<<<<< HEAD
-
-
-=======
->>>>>>> f97071dd1af447a4a51bca091244ae4bde42da00
 
             </Route>
           </Routes>

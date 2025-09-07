@@ -22,8 +22,7 @@ function AdminNewsletter() {
       .then((res) =>{
         setSubscribers(res.data);
       })
-      
->>>>>>> 3d1fcc592930a5840510f06ae4b15e44039d57a3
+
     } catch (err) {
       Swal.fire({
         title: "Error",
