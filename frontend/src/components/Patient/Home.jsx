@@ -205,7 +205,7 @@ function Home() {
                 <div className="flex flex-wrap justify-center gap-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+                    animate={{ opacity: aiInView ? 1 : 0, y: aiInView ? 0 : 20 }}
                     transition={{ duration: 1, delay: 0.2 }}
                     className="w-[270px] h-[300px] bg-white border border-gray-200 rounded-lg shadow flex flex-col items-center justify-center text-center p-4"
                 >
@@ -218,7 +218,7 @@ function Home() {
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+                    animate={{ opacity: aiInView ? 1 : 0, y: aiInView ? 0 : 20 }}
                     transition={{ duration: 1, delay: 0.4 }}
                     className="w-[270px] h-[300px] bg-white border border-gray-200 rounded-lg shadow flex flex-col items-center justify-center text-center p-4"
                 >
@@ -231,7 +231,7 @@ function Home() {
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+                    animate={{ opacity: aiInView ? 1 : 0, y: aiInView ? 0 : 20 }}
                     transition={{ duration: 1, delay: 0.6 }}
                     className="w-[270px] h-[300px] bg-white border border-gray-200 rounded-lg shadow flex flex-col items-center justify-center text-center p-4"
                 >
@@ -247,7 +247,7 @@ function Home() {
                 {/* CTA Button */}
                 <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+                animate={{ opacity: aiInView ? 1 : 0, y: aiInView ? 0 : 20 }}
                 transition={{ duration: 1, delay: 1 }}
                 className="text-center mt-12"
                 >
