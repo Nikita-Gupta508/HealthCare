@@ -13,6 +13,7 @@ This Hospital Management System is a web application developed using the MERN (M
 - **User Authentication**: Secure user authentication system for administrators, doctors, and staff members.
 - **Patient Management**: Easily manage patient records, including admission, discharge, and medical history.
 - **Appointment Scheduling**: Efficiently schedule and manage patient appointments with doctors.
+- - **AI-Powered Medical Report Analysis**: Automatically analyze medical reports using AI to provide detailed insights, detect abnormalities, and support better diagnosis.
 - **Inventory Management**: Keep track of medical supplies and equipment inventory.
 - **Billing System**: Generate and manage invoices for patient services.
 - **Reports and Analytics**: Generate insightful reports and analytics for better decision-making.
