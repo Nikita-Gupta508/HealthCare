@@ -79,6 +79,10 @@ function App() {
               <Route path="/admin-newsletter" element={<AdminNewsletter />} />
               <Route path="/admin-department" element={<AdminDepartment />} />
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c220a4682ee9f7311cee232ca83890aa4a934d9d
             </Route>
           </Routes>
         </Router>
